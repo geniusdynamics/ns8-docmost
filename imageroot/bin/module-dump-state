@@ -8,4 +8,4 @@
 set -e
 
 echo "Dumping docmost postgres database"
-podman exec postgresql-app pg_dump -U postgres --format=c  docmost > docmost.pg_dump
+podman exec postgresql-app pg_dump -U docmost --format=c  docmost > docmost.pg_dump
