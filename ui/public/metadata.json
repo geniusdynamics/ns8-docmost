@@ -1,19 +1,19 @@
 {
   "name": "docmost",
   "description": {
-    "en": "My docmost module"
+    "en": "Open-source collaborative wiki and documentation software"
   },
   "categories": [],
   "authors": [
     {
-      "name": "Name Surname",
-      "email": "author@yourmail.org"
+      "name": "Kemboi Elvis",
+      "email": "kemboielvis@genius.ke"
     }
   ],
   "docs": {
-    "documentation_url": "https://docs.docmost.com/",
-    "bug_url": "https://github.com/NethServer/dev",
-    "code_url": "https://github.com/author/ns8-docmost"
+    "documentation_url": "https://docmost.com/",
+    "bug_url": "https://github.com/geniusdynamics/dev",
+    "code_url": "https://github.com/geniusdynamics/ns8-docmost"
   },
-  "source": "ghcr.io/nethserver/docmost"
+  "source": "ghcr.io/geniusdynamics/docmost"
 }
