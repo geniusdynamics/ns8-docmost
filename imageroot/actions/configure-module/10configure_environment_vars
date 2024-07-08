@@ -18,5 +18,32 @@ data = json.load(sys.stdin)
 # Configure HOST
 HOST = data.get('host')
 agent.set_env('APP_URL', HOST)
+
+rdb = agent.redis_connect(use_replica=True)
+smtp_settings = agent.get_smarthost_settings(rdb)
+MAIL_DRIVER = "smtp"
+MAIL_FROM_ADDRESS = smtp_settings['username']
+MAIL_FROM_NAME = "DOCMOST"+"<"+MAIL_FROM_ADDRESS+">"
+# SMTP Configuration
+## Set the default values
+SMTP_HOST=smtp_settings['host']
+# OPTIONAL: Defines the port to use for sending emails.
+SMTP_PORT=smtp_settings['port']
+# OPTIONAL: Defines the username to use with the SMTP server.
+SMTP_USERNAME=smtp_settings['username']
+# OPTIONAL: Defines the password to use with the SMTP server.
+SMTP_PASSWORD=smtp_settings['password']
+
+smtp_config = {
+    'MAIL_DRIVER': MAIL_DRIVER,
+    'MAIL_FROM_ADDRESS': MAIL_FROM_ADDRESS,
+    'MAIL_FROM_NAME': MAIL_FROM_NAME,
+    'SMTP_HOST': SMTP_HOST,
+    'SMTP_PORT': SMTP_PORT,
+    'SMTP_USERNAME': SMTP_USERNAME,
+    'SMTP_PASSWORD': SMTP_PASSWORD
+}
+agent.write_envfile("smtp-config.env",smtp_config)
+
 # just before starting systemd unit
 agent.dump_env()
