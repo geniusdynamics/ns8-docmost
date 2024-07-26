@@ -17,7 +17,8 @@ data = json.load(sys.stdin)
 
 # Configure HOST
 HOST = data.get('host')
-agent.set_env('APP_URL', HOST)
+SERVER_HOST = "https://"+host
+agent.set_env('APP_URL', SERVER_HOST)
 
 rdb = agent.redis_connect(use_replica=True)
 smtp_settings = agent.get_smarthost_settings(rdb)
