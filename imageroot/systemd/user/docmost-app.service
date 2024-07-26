@@ -21,7 +21,7 @@ ExecStartPre=-runagent discover-smarthost
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/docmost-app.pid \
     --cidfile %t/docmost-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/docmost.pod-id --replace -d --name  docmost-app \
-    --volume docmost:/app/data/storage:Z \
+    --volume docmost-app:/app/data/storage:Z \
     --env-file=%S/state/app.env \
     --env-file=%S/state/smtp-config.env \
     --env APP_URL=${APP_URL} \
