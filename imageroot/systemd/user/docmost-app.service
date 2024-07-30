@@ -24,7 +24,6 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/docmost-app.pid \
     --volume docmost-app:/app/data/storage:Z \
     --env-file=%S/state/app.env \
     --env-file=%S/state/smtp-config.env \
-    --env APP_URL=${APP_URL} \
     ${DOCMOST_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/docmost-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP docmost-app
