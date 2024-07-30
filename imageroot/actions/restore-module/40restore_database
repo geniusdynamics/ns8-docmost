@@ -11,7 +11,7 @@ exec 1>&2 # Redirect any output to the journal (stderr)
 mkdir -vp restore
 cat - >restore/docmost_restore.sh <<'EOS'
 # Read dump file from standard input:
-pg_restore --no-owner --no-privileges -U postgres -d docmost
+pg_restore --no-owner --no-privileges -U docmost -d docmost
 ec=$?
 docker_temp_server_stop
 exit $ec
@@ -27,9 +27,7 @@ podman run \
     --volume=./restore:/docker-entrypoint-initdb.d/:Z \
     --volume=postgres-data:/var/lib/postgresql/data:Z \
     --replace --name=restore_db \
-    --env POSTGRES_USER=postgres \
-    --env POSTGRES_PASSWORD=Nethesis,1234 \
-    --env POSTGRES_DB=docmost \
+    --env-file database.env \
     --env TZ=UTC \
     "${POSTGRES_IMAGE}" < docmost.pg_dump
 
