@@ -14,7 +14,7 @@ images=()
 repobase="${REPOBASE:-ghcr.io/geniusdynamics}"
 # Configure the image name
 reponame="docmost"
-APP_VERSION="0.2.9"
+APP_VERSION="0.3.1"
 
 # Create a new empty container image
 container=$(buildah from scratch)
