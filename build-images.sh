@@ -17,7 +17,8 @@ reponame="docmost"
 # Node.js 25+ no longer ships Corepack, install it from npm
 # renovate: datasource=npm packageName=corepack
 corepack_version=0.36.0
-APP_VERSION="0.96"
+# renovate: datasource=docker packageName=docker.io/docmost/docmost
+APP_VERSION=0.96
 
 # Create a new empty container image
 container=$(buildah from scratch)
