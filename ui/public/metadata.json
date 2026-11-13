@@ -1,9 +1,13 @@
 {
   "name": "docmost",
   "description": {
-    "en": "Open-source collaborative wiki and documentation software"
+    "en": "Open-source collaborative wiki and documentation software",
+    "it": "Docmost è un software open source di wiki e documentazione collaborativa."
   },
-  "categories": [],
+  "categories": [
+    "documentation",
+    "collaboration"
+  ],
   "authors": [
     {
       "name": "Kemboi Elvis",

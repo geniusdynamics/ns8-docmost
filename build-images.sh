@@ -51,6 +51,7 @@ buildah config --entrypoint=/ \
 	--label="org.nethserver.authorizations=traefik@node:routeadm" \
 	--label="org.nethserver.tcp-ports-demand=1" \
 	--label="org.nethserver.rootfull=0" \
+    --label="org.nethserver.min-core=3.0.0" \
 	--label="org.nethserver.images=docker.io/postgres:16.16-alpine3.24 docker.io/docmost/docmost:${APP_VERSION} docker.io/redis:7.4.12-alpine3.22" \
 	"${container}"
 # Commit the image
